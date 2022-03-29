@@ -3,6 +3,8 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+Demo video link : https://drive.google.com/file/d/1XmQnj75P6Qx0O7jBhmU3Sjd71sqyTLQ0/view?usp=sharing
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
