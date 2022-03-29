@@ -1,0 +1,58 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{{#if this.colorToRemove}}
+<center>
+<div id ="alert">
+  Sure to delete {{this.colorToRemove.hex}}  !!!!
+  <br/>
+  <button type="button"  id="cancleB" {{action 'cancleRemove'}}>cancle</button>
+  <span id="tab"/>
+  <button type="button" id="confirmB" {{action 'remove' }}>confirm</button>
+</div>
+</center>
+{{/if}}
+<div id="palette-wrapper">
+{{#each this.colorarr as |color|}}
+<div id="colorelement" style="background-color: {{color.hex}}"  onclick={{action 'copyC' color}}>
+<button type="button" id="deleteB" {{action 'setcolorToRemove' color}} style="background-color: {{ color.hex}}" ><div id="imgX"> <i class="fa fa-trash" style="color: {{ color.inverted}}"></i></div></button>
+<div id="cchild">
+{{#if this.hex}}
+  <div style="color: {{ color.inverted}}">
+  {{#if color.name}}
+  {{color.name}} ({{color.hex}})
+  {{else}}
+  {{color.hex}}
+  {{/if}}
+  </div>
+{{else}}
+  <div style="color: {{ color.inverted}}">
+  {{#if color.name}}
+  {{color.name}} {{color.rgb}}
+  {{else}}
+  {{color.rgb}}
+  {{/if}}
+  </div>
+{{/if}}
+</div>
+</div>
+
+{{/each}}
+
+<div id="newelement">
+    <div id="cchild1">
+   Value : {{input type="text"  value=code}}
+    Name : {{input type="text"  value=name}}
+   <br/><br/>
+    <button type="button" id="addbutton" {{action 'addcolor'}}>+</button>
+    </div>
+</div>
+<span id="tab"/>
+<h3><span id="tab"/>Viewing Mode</h3>
+
+<span id="tab"/><label>Hex</label>
+<input type="radio" name="Hex" checked={{this.hex}} onclick={{action 'makeHex'}}/>
+<span id="tab"/>
+<label>RGB</label>
+<input type="radio" name="RGB" checked={{this.rgb}} onclick={{action 'makeRGB'}}/>
+</div>
